@@ -8,5 +8,16 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanchi-bit/blogify-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kanchi-bit/blogify-api/issues"
+  },
+  "homepage": "https://github.com/kanchi-bit/blogify-api#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
 }
