@@ -1,12 +1,9 @@
 const express = require("express");
-
 const postsRouter = require("./routes/posts.routes");
 
 const app = express();
 
 app.use(express.json());
-
-// Mount posts router
 app.use("/api/v1/posts", postsRouter);
 
 const PORT = 3000;
