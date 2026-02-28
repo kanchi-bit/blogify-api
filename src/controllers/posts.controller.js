@@ -1,22 +1,35 @@
 // src/controllers/posts.controller.js
 
-const getAllPosts = (req, res) => {
-  const posts = [
-    { id: 1, title: "First Post" },
-    { id: 2, title: "Second Post" }
-  ];
+// Fake in-memory data
+const posts = [
+  { id: "1", title: "First Post" },
+  { id: "2", title: "Second Post" },
+  { id: "123-abc", title: "Special Post" }
+];
 
-  res.status(200).json({
+// GET /api/v1/posts
+const getAllPosts = (req, res) => {
+  return res.status(200).json({
     success: true,
-    data: posts
+    data: {
+      posts
+    }
   });
 };
 
-const getPostById = async (req, res) => {
+// GET /api/v1/posts/:postId
+const getPostById = (req, res) => {
   const postId = req.params.postId;
 
-  res.status(200).json({
-    message: "Fetching data for post with ID: " + postId
+  const post = posts.find(p => p.id === postId);
+
+  // Even if you later handle 404 differently,
+  // assignment says successful requests must follow envelope.
+  return res.status(200).json({
+    success: true,
+    data: {
+      post
+    }
   });
 };
 
