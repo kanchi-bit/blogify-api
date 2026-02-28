@@ -1,11 +1,27 @@
 const express = require("express");
-const postController = require("../controllers/posts.controller");
-
 const router = express.Router();
 
-router.get("/", postController.getAllPosts);
+const {
+  getAllPosts,
+  getPostById,
+  createPost,
+  updatePost,
+  deletePost,
+} = require("../controllers/posts.controller");
 
-// IMPORTANT: dynamic route goes after "/"
-router.get("/:postId", postController.getPostById);
+// GET /api/v1/posts
+router.get("/", getAllPosts);
+
+// GET /api/v1/posts/:postId
+router.get("/:postId", getPostById);
+
+// POST /api/v1/posts
+router.post("/", createPost);
+
+// PUT /api/v1/posts/:postId
+router.put("/:postId", updatePost);
+
+// DELETE /api/v1/posts/:postId
+router.delete("/:postId", deletePost);
 
 module.exports = router;
